@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>Your Name | Personal Homepage</title>
+    <meta name="description"
+        content="A personal homepage for research, publications, education, and favorite characters.">
+    <meta name="keywords"
+        content="personal homepage, computer vision, computer networks, autonomous driving, video analytics, research">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script type="text/javascript">
+        if (!!window.ActiveXObject || "ActiveXObject" in window) {
+            alert('This website does not support Internet Explorer.');
+        }
+    </script>
+    <style>
+        body,
+        li,
+        span,
+        p,
+        a,
+        button {
+            cursor: auto !important;
+        }
+
+        body {
+            background: #f3f5f8;
+        }
+
+        .avatar-img {
+            animation: none !important;
+        }
+
+        hr:before {
+            content: '' !important;
+        }
+
+        #nav.not_index_bg {
+            height: 27rem;
+            background-image:
+                linear-gradient(135deg, rgba(28, 39, 64, 0.72), rgba(67, 93, 143, 0.45)),
+                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80');
+            background-position: center center;
+            background-size: cover;
+        }
+
+        #page_site-info {
+            top: 6.2rem;
+        }
+
+        #site-title {
+            width: min(92%, 980px);
+            margin: 0 auto;
+            font-size: 1.4rem;
+        }
+
+        .hero-subtitle {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+        }
+
+        .hero-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.4rem;
+            padding: 0 1rem;
+        }
+
+        .hero-nav a {
+            display: inline-block;
+            padding: 0.45rem 0.95rem;
+            border-radius: 999px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.92rem;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .hero-nav a:hover {
+            background: rgba(255, 255, 255, 0.24);
+            transform: translateY(-1px);
+        }
+
+        .author-info__description {
+            margin-top: 0.35rem;
+            line-height: 1.75;
+        }
+
+        .article-container {
+            color: #2d3748;
+        }
+
+        .article-container h2 {
+            margin-top: 1.2rem;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .article-container p {
+            margin: 0.55rem 0 0.9rem;
+        }
+
+        .section-anchor {
+            scroll-margin-top: 24px;
+        }
+
+        .info-card {
+            padding: 1rem 1.1rem;
+            margin: 0.9rem 0 1.2rem;
+            border-radius: 14px;
+            background: #f8fafc;
+            border: 1px solid #e6edf7;
+        }
+
+        .simple-list,
+        .pub-list,
+        .timeline {
+            margin: 0.6rem 0 0;
+            padding-left: 1.1rem;
+        }
+
+        .simple-list li,
+        .pub-list li,
+        .timeline li {
+            margin-bottom: 0.7rem;
+            line-height: 1.8;
+        }
+
+        .pub-list em {
+            color: #5b6b82;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.95rem 1rem;
+            border-radius: 14px;
+            background: #f8fafc;
+            border: 1px solid #e6edf7;
+            margin-top: 0.6rem;
+        }
+
+        .contact-box i {
+            font-size: 1.1rem;
+            color: #4968a8;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .favorite-card {
+            display: block;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #f8fafc;
+            border: 1px solid #e6edf7;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .favorite-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(44, 62, 104, 0.12);
+        }
+
+        .favorite-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            background: #edf2f7;
+        }
+
+        .favorite-card-body {
+            padding: 0.85rem 1rem 1rem;
+        }
+
+        .favorite-card-body h3 {
+            margin: 0 0 0.3rem;
+            font-size: 1.02rem;
+            color: #2c3e68;
+        }
+
+        .favorite-card-body p {
+            margin: 0;
+            color: #5b6b82;
+            font-size: 0.92rem;
+        }
+
+        .music-note {
+            margin-top: 0.6rem;
+            padding: 0.95rem 1rem;
+            border-left: 4px solid #7b8fcb;
+            background: #f8fafc;
+            border-radius: 10px;
+            color: #4a5568;
+        }
+
+        .aside-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.55rem;
+            margin-top: 0.8rem;
+        }
+
+        .aside-links a {
+            text-decoration: none;
+            color: #2d3748;
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            background: #f8fafc;
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+        }
+
+        .aside-links a:hover {
+            background: #edf2ff;
+            color: #314d8d;
+        }
+
+        #thoughts {
+            min-height: 3.5rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .placeholder-note {
+            color: #5b6b82;
+            font-size: 0.93rem;
+        }
+
+        .small-label {
+            display: inline-block;
+            margin-top: 0.3rem;
+            color: #718096;
+            font-size: 0.88rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            #site-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.06rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            #nav.not_index_bg {
+                height: 30rem;
+            }
+
+            #page_site-info {
+                top: 5.4rem;
+            }
+
+            .favorites-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .favorite-card img {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body-wrap">
+        <nav class="not_index_bg" id="nav">
+            <div id="page_site-info">
+                <div id="site-title">
+                    <span class="blogtitle"></span>
+                    <div class="hero-subtitle">A personal space for research, curiosity, and the things that stay with me.</div>
+                    <div class="hero-nav">
+                        <a href="#about">About</a>
+                        <a href="#research">Research Interests</a>
+                        <a href="#education">Education</a>
+                        <a href="#publications">Publications</a>
+                        <a href="#internships">Internships</a>
+                        <a href="#favorites">Favorites</a>
+                        <a href="#music">Music</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main id="content-outer">
+            <div class="layout_page" id="content-inner">
+                <div class="aside_content" id="aside_content">
+                    <div class="card-widget card-info">
+                        <div class="card-content">
+                            <div class="card-info-avatar is-center">
+                                <img class="avatar-img"
+                                    src="static/img/nkx_q.jpg"
+                                    alt="avatar">
+                                <div class="author-info__name">Hebin Sun</div>
+                                <div class="author-info__description">
+                                    Ph.D. Candidate<br>
+                                    State Key Laboratory for Novel Software Technology<br>
+                                    Department of Computer Science and Technology, Nanjing University<br>
+                                    Room 528, CS Building, Xianlin Campus, Nanjing University<br>
+                                </div>
+                            </div>
+                            <div class="card-info-social-icons profile-links">
+                                <a class="social-icon social-link-item" href="mailto:sunhebin@smail.nju.edu.cn" title="Email">
+                                    <i class="fa fa-envelope"></i>
+                                    <span>sunhebin@smail.nju.edu.cn</span>
+                                </a>
+
+                                <a class="social-icon social-link-item" href="https://github.com/1747933957" target="_blank" rel="noopener noreferrer" title="GitHub">
+                                    <i class="fa fa-github"></i>
+                                    <span>Github: 1747933957</span>
+                                </a>
+
+                                <a class="social-icon social-link-item" href="https://scholar.google.com/citations?user=dk07CIoAAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar">
+                                    <i class="ai ai-google-scholar"></i>
+                                    <span>Google Scholar: dk07CIoAAAAJ</span>
+                                </a>
+
+                                <a class="social-icon social-link-item" href="https://orcid.org/0009-0008-5251-0674" target="_blank" rel="noopener noreferrer" title="ORCID">
+                                    <i class="ai ai-orcid"></i>
+                                    <span>ORCID: 0009-0008-5251-0674</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-widget card-announcement">
+                        <div class="card-content">
+                            <div class="item-headline">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <span>Thoughts</span>
+                            </div>
+                            <div id="thoughts"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-widget card-announcement">
+                        <div class="card-content">
+                            <div class="item-headline">
+                                <i class="fa fa-compass" aria-hidden="true"></i>
+                                <span>Quick Links</span>
+                            </div>
+                            <div class="aside-links">
+                                <a href="#about">About</a>
+                                <a href="#research">Research Interests</a>
+                                <a href="#publications">Publications</a>
+                                <a href="#internships">Internships</a>
+                                <a href="#favorites">Favorite Characters</a>
+                                <a href="#music">Music Player</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <article id="page">
+                    <div class="article-container">
+                        <section id="about" class="section-anchor">
+                            <h2>About</h2>
+                            <p>
+                                Welcome to my personal homepage. This page is designed to present my academic interests,
+                                educational background, publications, and internships.
+                            </p>
+                            <div class="info-card">
+                                <p>
+                                    I am a Ph.D. candidate at Nanjing University, advised by Prof. Sheng Zhang.
+                                    My research interests include computer vision, computer networks, autonomous driving, and video analytics.
+                                    I am particularly interested in efficient visual intelligence systems, collaborative perception, and real-time analysis and transmission of visual data in practical environments.
+                                </p>
+                            </div>
+                        </section>
+
+                        <hr>
+
+                        <section id="research" class="section-anchor">
+                            <h2>Research Interests</h2>
+                            <ul class="simple-list">
+                                <li>Computer Vision</li>
+                                <li>Computer Networks</li>
+                                <li>Autonomous Driving</li>
+                                <li>Video Analytics</li>
+                                <li>Edge-Cloud Collaborative Intelligence</li>
+                            </ul>
+                            <!-- <p class="placeholder-note">
+                                Keep only the directions you truly want on your homepage. If you want a stricter academic style,
+                                you can also rewrite this section as one paragraph instead of a list.
+                            </p> -->
+                        </section>
+
+                        <hr>
+
+                        <section id="education" class="section-anchor">
+                            <h2>Education</h2>
+                            <ul class="timeline">
+                                <li><strong>2024 – Present</strong> – Nanjing University, Ph.D. in Computer Science and Technology</li>
+                                <li><strong>2020 – 2024</strong> – Nanjing University, B.Eng. in Computer Science and Technology</li>
+                            </ul>
+                            <!-- <p class="placeholder-note">
+                                Replace the placeholders with your real education history. If you only want one entry, delete the rest.
+                            </p> -->
+                        </section>
+
+                        <hr>
+
+                        <section id="publications" class="section-anchor">
+                            <h2>Publications</h2>
+                            <ol class="pub-list">
+                                <li>
+                                    <strong>Hebin Sun</strong>, Liu Wei, Meizhao Liu, Yingcheng Gu, Fei Xia, Kai Liu, Yu Song, Huanyu Cheng, Lei Tang, and Sheng Zhang.
+                                    <br>
+                                    <strong style="color: #222222;">SDFMD: Spatial Domain Filtering for Accelerating Video Analysis.</strong>
+                                    <br>
+                                    In <em>International Conference on Frontiers of Electronics, Information and Computation Technologies (ICFEICT)</em>, pp. 322–330, 2024.
+                                </li>
+                                <!-- <li>
+                                    <strong>Your Name</strong>, Coauthor A. “Paper Title Two.” <em>Conference or Journal</em>, 20XX.
+                                </li> -->
+                                <!-- <li>
+                                    <strong>Your Name</strong>. “Working Paper or Preprint Title.” <em>Under Review / Preprint</em>, 20XX.
+                                </li> -->
+                            </ol>
+                            <!-- <p class="placeholder-note">
+                                Replace these sample entries with your real papers. If you want, I can also help you turn this section into a cleaner Google Scholar style list.
+                            </p> -->
+                        </section>
+
+                        <hr>
+
+                        <section id="internships" class="section-anchor">
+                            <h2>Internships</h2>
+
+                            <div class="internship-item">
+                                <p>
+                                    <strong>Huawei Nanjing Research Center</strong><br>
+                                    IoT Network Development Department<br>
+                                    Software Development Engineer, Jul. 2023 – Sep. 2023
+                                </p>
+                            </div>
+
+                            <!-- <div class="internship-item internship-placeholder">
+                                <p>
+                                    <strong>Additional Internship</strong><br>
+                                    Details will be added here in the future.
+                                </p>
+                            </div> -->
+                        </section>
+
+                        <hr>
+
+                        <section id="favorites" class="section-anchor">
+                            <h2>Favorites</h2>
+                            <p>
+                                This section is for the characters I really like. Each card shows an image and links to a Baidu Baike search-entry page.
+                            </p>
+                            <div class="favorites-grid four-cols">
+                                <a class="favorite-card" href="https://baike.baidu.com/search/word?word=%E6%95%A3%E5%85%B5" target="_blank" rel="noopener noreferrer">
+                                    <img src="static/img/sanbing.jpg" alt="Scaramouche">
+                                    <div class="favorite-card-body">
+                                        <h3>Scaramouche</h3>
+                                        <p>Genshin Impact</p>
+                                    </div>
+                                </a>
+
+                                <a class="favorite-card" href="https://baike.baidu.com/search/word?word=%E9%82%A3%E5%88%BB%E5%A4%8F" target="_blank" rel="noopener noreferrer">
+                                    <img src="static/img/nkx.jpg" alt="Anaxa">
+                                    <div class="favorite-card-body">
+                                        <h3>Anaxa</h3>
+                                        <p>Honkai: Star Rail</p>
+                                    </div>
+                                </a>
+
+                                <a class="favorite-card" href="https://baike.baidu.com/search/word?word=%E7%A0%82%E9%87%91" target="_blank" rel="noopener noreferrer">
+                                    <img src="static/img/shajin.jpg" alt="Aventurine">
+                                    <div class="favorite-card-body">
+                                        <h3>Aventurine</h3>
+                                        <p>Honkai: Star Rail</p>
+                                    </div>
+                                </a>
+
+                                <a class="favorite-card" href="https://baike.baidu.com/search/word?word=Xerxes%20Break" target="_blank" rel="noopener noreferrer">
+                                    <img src="static/img/xerxes.jpg" alt="Xerxes Break">
+                                    <div class="favorite-card-body">
+                                        <h3>Xerxes Break</h3>
+                                        <p>Pandora Hearts</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </section>
+
+                        <hr>
+
+                        <section id="music" class="section-anchor">
+                            <h2>Music</h2>
+                            <p>
+                                Some music I enjoy and would love to share with you.
+                            </p>
+
+                            <!--
+                                Music replacement examples:
+
+                                1) Keep the current format and replace only the playlist URL:
+                                   <meting-js auto="https://y.qq.com/n/ryqq/playlist/1234567890"></meting-js>
+
+                                2) Use NetEase Cloud Music:
+                                   <meting-js auto="https://music.163.com/#/playlist?id=123456789"></meting-js>
+
+                                3) Use explicit server/type/id form instead of auto:
+                                   <meting-js server="tencent" type="playlist" id="1234567890"></meting-js>
+                                   <meting-js server="netease" type="playlist" id="123456789"></meting-js>
+                            -->
+                            <meting-js auto="https://y.qq.com/n/yqq/playlist/9685092361.html"></meting-js>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer id="footer">
+            <div id="footer-wrap">
+                <div class="copyright">&copy; 2026 Hebin Sun. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script>
+        new Typed('.blogtitle', {
+            strings: [
+                'I have laid bare the truth of the world.',
+                'Everything, or nothing at all.',
+                'There is no absolute freedom in this world; even the wind has its end.'
+            ],
+            startDelay: 300,
+            typeSpeed: 55,
+            loop: true,
+            backSpeed: 30,
+            backDelay: 1800,
+            showCursor: true
+        });
+
+        const thoughtLines = [
+            'Trying to understand hard problems, one step at a time.',
+            'Good research starts with honest questions and patient curiosity.',
+            'Building slowly is still moving forward.',
+            'Clear thinking matters more than noisy confidence.'
+        ];
+
+        const thoughtsNode = document.getElementById('thoughts');
+        let thoughtIndex = 0;
+
+        function renderThought() {
+            thoughtsNode.textContent = thoughtLines[thoughtIndex];
+            thoughtIndex = (thoughtIndex + 1) % thoughtLines.length;
+        }
+
+        renderThought();
+        setInterval(renderThought, 4000);
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</body>
+
+</html>
